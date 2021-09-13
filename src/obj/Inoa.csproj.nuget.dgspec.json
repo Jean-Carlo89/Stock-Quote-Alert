@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj": {}
+    "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj": {}
   },
   "projects": {
-    "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj": {
+    "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj",
+        "projectUniqueName": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj",
         "projectName": "Inoa",
-        "projectPath": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj",
+        "projectPath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj",
         "packagesPath": "C:\\Users\\jeanc\\.nuget\\packages\\",
-        "outputPath": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\obj\\",
+        "outputPath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jeanc\\AppData\\Roaming\\NuGet\\NuGet.Config"

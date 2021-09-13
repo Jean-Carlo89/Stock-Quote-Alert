@@ -30,3 +30,6 @@ E:\JEAN -- PROGRAMAÇÃO\Inoa\src\obj\Debug\netcoreapp3.1\Inoa.csproj.CopyComple
 E:\JEAN -- PROGRAMAÇÃO\Inoa\src\obj\Debug\netcoreapp3.1\Inoa.dll
 E:\JEAN -- PROGRAMAÇÃO\Inoa\src\obj\Debug\netcoreapp3.1\Inoa.pdb
 E:\JEAN -- PROGRAMAÇÃO\Inoa\src\obj\Debug\netcoreapp3.1\Inoa.genruntimeconfig.cache
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\FluentEmail.Core.dll
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\FluentEmail.Smtp.dll
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll

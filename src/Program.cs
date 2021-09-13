@@ -18,27 +18,16 @@ namespace Inoa
 
       HttpClient client = new HttpClient();
         
-        static void Main(string[] args) {
-        // {    Program program = new Program();
-        //       await program.MyFunction();
+        static async Task Main(string[] args) {
+            var email = new EmailSender();
+            await email.SendEmail();
             
-            
-            timer.Elapsed += (sender, e) => MyElapsedMethod(sender, e,args); 
-            timer.AutoReset = true;
-            timer.Enabled = true;  
-            timer.Start();
-            Console.Read();
-             //string url = "https://api.twelvedata.com/time_series?symbol=PETR4&interval=1min&apikey=ff4dfb66a51c4c77a59163cbb2adc5b6&source=docs";
-
-            // var client = new RestClient(url);
-
-            // var request = new RestRequest();
-
-            // var response = client.Get(request);
-            //  Console.WriteLine();
-
-            // //Console.WriteLine(response.Content[1].ToString());
+            // timer.Elapsed += (sender, e) => MyElapsedMethod(sender, e,args); 
+            // timer.AutoReset = true;
+            // timer.Enabled = true;  
+            // timer.Start();
             // Console.Read();
+            
         }
 
         private async Task<ObjectTest> MyFunction(string args){
