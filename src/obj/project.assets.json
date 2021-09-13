@@ -2,6 +2,39 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "FluentEmail.Core/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.11"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentEmail.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentEmail.Core.dll": {}
+        }
+      },
+      "FluentEmail.Smtp/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentEmail.Core": "3.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentEmail.Smtp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentEmail.Smtp.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.11": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -23,6 +56,46 @@
     }
   },
   "libraries": {
+    "FluentEmail.Core/3.0.0": {
+      "sha512": "aR81GYqWS5qATQh1300BmnRnUukgB89THcYXOHs7YGuSHc827qZtWqrGJlV8k9Jk60hlcmm/O/9Vmoaw2ytD3g==",
+      "type": "package",
+      "path": "fluentemail.core/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluentemail.core.3.0.0.nupkg.sha512",
+        "fluentemail.core.nuspec",
+        "fluentemail_logo_64x64.png",
+        "lib/netstandard2.0/FluentEmail.Core.dll"
+      ]
+    },
+    "FluentEmail.Smtp/3.0.0": {
+      "sha512": "/Oc/OeWavbdNcMsEDoQljw7QAkAMm67xil+RG/JwJct5i6/cdl8jHzNSsSSzTRskxMDydIoUk/1DYFGgM7AqmQ==",
+      "type": "package",
+      "path": "fluentemail.smtp/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluentemail.smtp.3.0.0.nupkg.sha512",
+        "fluentemail.smtp.nuspec",
+        "fluentemail_logo_64x64.png",
+        "lib/netstandard2.0/FluentEmail.Smtp.dll"
+      ]
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.11": {
+      "sha512": "rfIMu8yiK8Z+N6CMlcOCB0Te9Aqj/w7InRDgouqLQqIO6LQB4+YYKumO6XONyMwcO0+FWGc8ZNdhDQIwKTdy4w==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/3.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.3.1.11.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec"
+      ]
+    },
     "Newtonsoft.Json/13.0.1": {
       "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
@@ -69,6 +142,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "FluentEmail.Smtp >= 3.0.0",
       "Newtonsoft.Json >= 13.0.1",
       "RestSharp >= 106.12.0"
     ]
@@ -79,11 +153,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\Inoa.csproj",
+      "projectUniqueName": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj",
       "projectName": "Inoa",
-      "projectPath": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\Inoa.csproj",
+      "projectPath": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj",
       "packagesPath": "C:\\Users\\jeanc\\.nuget\\packages\\",
-      "outputPath": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\obj\\",
+      "outputPath": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jeanc\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -108,6 +182,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "FluentEmail.Smtp": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.1, )"

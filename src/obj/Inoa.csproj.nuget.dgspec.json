@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\Inoa.csproj": {}
+    "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj": {}
   },
   "projects": {
-    "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\Inoa.csproj": {
+    "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\Inoa.csproj",
+        "projectUniqueName": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj",
         "projectName": "Inoa",
-        "projectPath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\Inoa.csproj",
+        "projectPath": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj",
         "packagesPath": "C:\\Users\\jeanc\\.nuget\\packages\\",
-        "outputPath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\obj\\",
+        "outputPath": "e:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jeanc\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -36,6 +36,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "FluentEmail.Smtp": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"

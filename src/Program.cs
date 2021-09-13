@@ -39,10 +39,6 @@ namespace Inoa
 
             // //Console.WriteLine(response.Content[1].ToString());
             // Console.Read();
-
-            
-
-
         }
 
         private async Task<ObjectTest> MyFunction(string args){
@@ -87,16 +83,17 @@ namespace Inoa
            var y = await program.MyFunction(args[0]);
           var sell = Double.Parse(args[1]);
           var buy =  Double.Parse(args[2]);
+          var average = (sell+buy)/2;
 
            Console.WriteLine(y.values[0].high);
            Console.WriteLine(y.values[0].low);
            
-           if (y.values[0].high > sell)
+           if (y.values[0].high >average)
            {
                Console.WriteLine("Enviar email de vender");
            }
 
-            if (y.values[0].low < buy)
+            if (y.values[0].low < average)
            {
                Console.WriteLine("Enviar email de comprar");
            }
