@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\Inoa.csproj": {}
+  },
+  "projects": {
+    "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\Inoa.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\Inoa.csproj",
+        "projectName": "Inoa",
+        "projectPath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\Inoa.csproj",
+        "packagesPath": "C:\\Users\\jeanc\\.nuget\\packages\\",
+        "outputPath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jeanc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.12.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.412\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
