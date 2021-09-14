@@ -47,7 +47,7 @@ namespace Inoa
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = new NetworkCredential($"{Environment.GetEnvironmentVariable("SENDER_EMAIL")}",$"{Environment.GetEnvironmentVariable("SENDER_PASSWORD_CREDENTIAL")}");
 
-                smtpClient.EnableSsl = true;
+                smtpClient.EnableSsl =Convert.ToBoolean(Environment.GetEnvironmentVariable("SMTP_SSL"));
 
                 smtpClient.Send(mailMessage);
 
