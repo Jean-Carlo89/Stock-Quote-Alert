@@ -5,6 +5,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Inoa
 {
@@ -18,16 +19,13 @@ namespace Inoa
 
       HttpClient client = new HttpClient();
         
-        static async Task Main(string[] args) {
-            var email = new EmailSender();
-            await email.SendEmail();
+        static void Main(string[] args) {
            
-            
-            // timer.Elapsed += (sender, e) => MyElapsedMethod(sender, e,args); 
-            // timer.AutoReset = true;
-            // timer.Enabled = true;  
-            // timer.Start();
-            // Console.Read();
+           timer.Elapsed += async (sender, e) => await MyElapsedMethod(sender, e,args); 
+            timer.AutoReset = true;
+            timer.Enabled = true;  
+            timer.Start();
+            Console.Read();
             
         }
 
@@ -37,13 +35,7 @@ namespace Inoa
          Console.WriteLine("chegou aqui");
 
           return JsonConvert.DeserializeObject<ObjectTest>(response);
-          
-            //  Console.WriteLine(x.values);
-            // Console.WriteLine(x.values[0].datetime);
-            // Console.WriteLine(x.values[0].open);
-            // Console.WriteLine(x.values[0].high);
-            // Console.WriteLine(x.values[0].low);
-            // Console.WriteLine(x.values[0].volume);  
+
         }
 
         public class ObjectTest {
@@ -67,25 +59,56 @@ namespace Inoa
              public double volume { get; set; }
         }
 
-         private async static void MyElapsedMethod(object sender, ElapsedEventArgs e, string[] args)
+         private async static Task MyElapsedMethod(object sender, ElapsedEventArgs e, string[] args)
         {
-            Program program = new Program();
-           var y = await program.MyFunction(args[0]);
-          var sell = Double.Parse(args[1]);
-          var buy =  Double.Parse(args[2]);
-          var average = (sell+buy)/2;
 
-           Console.WriteLine(y.values[0].high);
-           Console.WriteLine(y.values[0].low);
-           
-           if (y.values[0].high >average)
+             var email = new EmailSender();
+            
+             Program program = new Program();
+          var y = await program.MyFunction(args[0]);
+
+       // double  shouldSell = Double.Parse(args[1]);
+      //  double  shouldBuy =  Double.Parse(args[2]);
+
+      //  double shouldSell = Double.Parse(args[1].Replace(',', '.'));
+      //   double shouldBuy = Double.Parse(args[2].Replace(',', '.'));
+
+       double shouldSell;  
+       double shouldBuy; 
+       double.TryParse(args[1], System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out shouldSell); //adjust input according to US
+       double.TryParse(args[1], System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out shouldBuy);
+        
+         var  average = ((y.values[0].high+y.values[0].low)/2);
+
+          // Console.WriteLine(y.values[0].high);
+          // Console.WriteLine(y.values[0].low);
+           Console.WriteLine($"shouldSell {shouldSell}");
+           Console.WriteLine($"average {average}");
+            Console.WriteLine($"shouldBuy {shouldBuy}");
+
+             
+
+   
+       
+      
+        
+       
+
+       
+
+
+            //return;
+
+           if (average >shouldSell)
            {
                Console.WriteLine("Enviar email de vender");
+               await email.SendEmail(args[0], "sell");
            }
 
-            if (y.values[0].low < average)
+            if (average < shouldBuy)
            {
                Console.WriteLine("Enviar email de comprar");
+               await email.SendEmail(args[0], "buy");
            }
 
            

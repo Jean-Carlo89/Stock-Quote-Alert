@@ -18,7 +18,15 @@ namespace Inoa
         public EmailSender(){
 
         }
-        public async Task SendEmail(){
+        public async Task SendEmail(string stock, string action){
+
+            string msg = "";
+            if(action=="buy"){
+                msg=$"You should buy stocks of {stock}";
+
+            }else{
+                msg=$"You should sell stocks of {stock}";
+            }
             
             
             try{ //Working with delay
@@ -27,7 +35,7 @@ namespace Inoa
             var subject = "Stock-alert";
             var to = new EmailAddress("jeancarlodev@gmail.com", "Jean");
             var plainContent = "Changes in Stock";
-            var htmlContent = "<h1>Hello, Your action should Be....</h1>";
+            var htmlContent = $"<h1>Hello, {msg}</h1>";
             var mailMessage = MailHelper.CreateSingleEmail(from, to, subject, plainContent, htmlContent);
             await sendGridClient.SendEmailAsync(mailMessage);
             Console.WriteLine("Email sent");
