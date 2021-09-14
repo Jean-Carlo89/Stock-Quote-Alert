@@ -11,20 +11,25 @@ namespace Inoa
 {
     class Program
     {
-        public static int seconds =0;
-        public string api = "JYH46XOQTRSPVY8Y";
-
-        public string twelveDataApiKey = "ff4dfb66a51c4c77a59163cbb2adc5b6";
-      public static Timer timer = new Timer(5000);//create setInterval
+          public static Timer timer = new Timer(5000);//create setInterval
 
       HttpClient client = new HttpClient();
         
         static void Main(string[] args) {
             DotNetEnv.Env.Load();
-            var message = Environment.GetEnvironmentVariable("TATU");
-           Console.WriteLine($"This is {message}!");
 
-           return;
+//                  System.Console.WriteLine($"{Environment.GetEnvironmentVariable("SENDER_EMAIL")}");
+//              System.Console.WriteLine($"{Environment.GetEnvironmentVariable("RECEIVER_EMAIL")}");
+
+//  System.Console.WriteLine($"{Environment.GetEnvironmentVariable("SMTP_SERVER")}");
+//   System.Console.WriteLine(int.Parse(Environment.GetEnvironmentVariable("SMTP_PORT")));
+
+//  System.Console.WriteLine($"{Environment.GetEnvironmentVariable("SENDER_EMAIL")}");
+//   System.Console.WriteLine($"{Environment.GetEnvironmentVariable("SENDER_PASSWORD_CREDENTIAL")}");
+
+
+// return;
+
            timer.Elapsed += async (sender, e) => await MyElapsedMethod(sender, e,args); 
             timer.AutoReset = true;
             timer.Enabled = true;  
@@ -34,10 +39,7 @@ namespace Inoa
         }
 
         private async Task<ObjectTest> MyFunction(string args){
-            string response = await client.GetStringAsync($"https://api.twelvedata.com/time_series?symbol={args}&interval=1min&apikey=ff4dfb66a51c4c77a59163cbb2adc5b6&source=docs");
-        
-         Console.WriteLine("chegou aqui");
-
+          string response = await client.GetStringAsync($"https://api.twelvedata.com/time_series?symbol={args}&interval=1min&apikey=ff4dfb66a51c4c77a59163cbb2adc5b6&source=docs");
           return JsonConvert.DeserializeObject<ObjectTest>(response);
 
         }
@@ -78,11 +80,6 @@ namespace Inoa
        double.TryParse(args[1], System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out shouldBuy);
         
          var  average = ((y.values[0].high+y.values[0].low)/2);
-
-        
-           Console.WriteLine($"shouldSell {shouldSell}");
-           Console.WriteLine($"average {average}");
-           Console.WriteLine($"shouldBuy {shouldBuy}");
 
            if (average >shouldSell)
            {
