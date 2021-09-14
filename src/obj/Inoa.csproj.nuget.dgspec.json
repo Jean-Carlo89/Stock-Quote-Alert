@@ -36,6 +36,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
             "FluentEmail.Smtp": {
               "target": "Package",
               "version": "[3.0.0, )"

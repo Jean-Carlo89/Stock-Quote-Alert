@@ -20,7 +20,11 @@ namespace Inoa
       HttpClient client = new HttpClient();
         
         static void Main(string[] args) {
-           
+            DotNetEnv.Env.Load();
+            var message = Environment.GetEnvironmentVariable("TATU");
+           Console.WriteLine($"This is {message}!");
+
+           return;
            timer.Elapsed += async (sender, e) => await MyElapsedMethod(sender, e,args); 
             timer.AutoReset = true;
             timer.Enabled = true;  
@@ -67,12 +71,7 @@ namespace Inoa
              Program program = new Program();
           var y = await program.MyFunction(args[0]);
 
-       // double  shouldSell = Double.Parse(args[1]);
-      //  double  shouldBuy =  Double.Parse(args[2]);
-
-      //  double shouldSell = Double.Parse(args[1].Replace(',', '.'));
-      //   double shouldBuy = Double.Parse(args[2].Replace(',', '.'));
-
+  
        double shouldSell;  
        double shouldBuy; 
        double.TryParse(args[1], System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out shouldSell); //adjust input according to US
@@ -80,24 +79,10 @@ namespace Inoa
         
          var  average = ((y.values[0].high+y.values[0].low)/2);
 
-          // Console.WriteLine(y.values[0].high);
-          // Console.WriteLine(y.values[0].low);
+        
            Console.WriteLine($"shouldSell {shouldSell}");
            Console.WriteLine($"average {average}");
-            Console.WriteLine($"shouldBuy {shouldBuy}");
-
-             
-
-   
-       
-      
-        
-       
-
-       
-
-
-            //return;
+           Console.WriteLine($"shouldBuy {shouldBuy}");
 
            if (average >shouldSell)
            {

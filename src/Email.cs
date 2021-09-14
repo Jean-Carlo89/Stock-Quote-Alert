@@ -5,9 +5,6 @@ using System.Net.Mail;
 using System.Net;
 using SendGrid;
 using System;
-// using MailKit.Net.Smtp;
-// using MailKit;
-// using MimeKit;
 using SendGrid.Helpers.Mail;
 //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 api key- sendgrid
 namespace Inoa

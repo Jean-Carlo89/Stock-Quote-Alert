@@ -40,3 +40,5 @@ E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\MimeKit.dll
 E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
 E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Pkcs.dll
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\DotNetEnv.dll
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\Sprache.dll
