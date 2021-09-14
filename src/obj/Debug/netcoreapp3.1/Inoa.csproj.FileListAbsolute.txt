@@ -33,3 +33,10 @@ E:\JEAN -- PROGRAMAÇÃO\Inoa\src\obj\Debug\netcoreapp3.1\Inoa.genruntimeconfig.
 E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\FluentEmail.Core.dll
 E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\FluentEmail.Smtp.dll
 E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\SendGrid.dll
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\MailKit.dll
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\MimeKit.dll
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+E:\JEAN -- PROGRAMAÇÃO\Inoa\src\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Pkcs.dll

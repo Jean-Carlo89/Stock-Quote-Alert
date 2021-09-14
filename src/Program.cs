@@ -21,6 +21,7 @@ namespace Inoa
         static async Task Main(string[] args) {
             var email = new EmailSender();
             await email.SendEmail();
+           
             
             // timer.Elapsed += (sender, e) => MyElapsedMethod(sender, e,args); 
             // timer.AutoReset = true;

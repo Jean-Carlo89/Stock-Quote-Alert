@@ -2,6 +2,14 @@ using System.Threading.Tasks;
 using FluentEmail.Smtp; // nuget dependency
 using FluentEmail.Core;// nuget dependency
 using System.Net.Mail;
+using System.Net;
+using SendGrid;
+using System;
+// using MailKit.Net.Smtp;
+// using MailKit;
+// using MimeKit;
+using SendGrid.Helpers.Mail;
+//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 api key- sendgrid
 namespace Inoa
 {
      public class EmailSender
@@ -11,22 +19,23 @@ namespace Inoa
 
         }
         public async Task SendEmail(){
-            var sender = new SmtpSender(()=> new SmtpClient(host:"localhost")
-            {
-                EnableSsl = false,
-                DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory,
-                PickupDirectoryLocation=@"S:\Demos"
-            });
-
-            Email.DefaultSender = sender; 
-
-            var email = await Email
-            .From(emailAddress:"exemplo@exemplo.com")
-            .To(emailAddress:"test@test.com", name:"Sue")
-            .Subject(subject:"thanks")
-            .Body(body:"Thanks for aaa")
-            .SendAsync();
-
+            
+            
+            try{ //Working with delay
+                 var sendGridClient = new SendGridClient("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");
+            var from = new EmailAddress("jteste899@outlook.com", "Jean");
+            var subject = "Stock-alert";
+            var to = new EmailAddress("jeancarlodev@gmail.com", "Jean");
+            var plainContent = "Changes in Stock";
+            var htmlContent = "<h1>Hello, Your action should Be....</h1>";
+            var mailMessage = MailHelper.CreateSingleEmail(from, to, subject, plainContent, htmlContent);
+            await sendGridClient.SendEmailAsync(mailMessage);
+            Console.WriteLine("Email sent");
+            }catch(Exception e){
+                Console.WriteLine(e.Message);
+            }
+        
+         
              
         }
     }
