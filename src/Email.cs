@@ -29,14 +29,9 @@ namespace Inoa
        
 
             try{
-
-
-
-
-            
              MailMessage mailMessage = new MailMessage($"{Environment.GetEnvironmentVariable("SENDER_EMAIL")}", $"{Environment.GetEnvironmentVariable("RECEIVER_EMAIL")}");
            
-            mailMessage.Subject = "Stock-alert";
+                mailMessage.Subject = "Stock-alert";
                 mailMessage.IsBodyHtml = true;
                 mailMessage.Body = $"<p> {msg} </p>";
                 mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
@@ -49,10 +44,10 @@ namespace Inoa
 
                 smtpClient.EnableSsl =Convert.ToBoolean(Environment.GetEnvironmentVariable("SMTP_SSL"));
 
-                smtpClient.Send(mailMessage);
+                 await smtpClient.SendMailAsync(mailMessage);
 
                 Console.WriteLine("Seu email foi enviado com sucesso! :)");
-                Console.ReadLine();
+                //Console.ReadLine();
                 
               }  catch (Exception e)
             {   
@@ -61,24 +56,6 @@ namespace Inoa
                  Console.WriteLine(e);
                 Console.ReadLine();
             }
-           
-           
-           
-            // try{ //Working with delay
-            //      var sendGridClient = new SendGridClient($"{Environment.GetEnvironmentVariable("SEND_API_KEY")}");
-            // var from = new EmailAddress($"{Environment.GetEnvironmentVariable("SENDER_EMAIL")}",  $"{Environment.GetEnvironmentVariable("SENDER_NAME")}");
-            // var subject = "Stock-alert";
-            // var to = new EmailAddress($"{Environment.GetEnvironmentVariable("RECEIVER_EMAIL")}", $"{Environment.GetEnvironmentVariable("RECEIVER_NAME")}");
-            // var plainContent = "Changes in Stock";
-            // var htmlContent = $"<h1>Hello, {msg}</h1>";
-            // var mailMessage = MailHelper.CreateSingleEmail(from, to, subject, plainContent, htmlContent);
-            // await sendGridClient.SendEmailAsync(mailMessage);
-            // Console.WriteLine("Email sent");
-            // }catch(Exception e){
-            //     Console.WriteLine(e.Message);
-            // }
-        
-         
              
         }
     }

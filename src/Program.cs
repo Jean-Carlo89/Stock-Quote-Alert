@@ -15,26 +15,23 @@ namespace Inoa
 
       HttpClient client = new HttpClient();
         
-        static void Main(string[] args) {
+        static async Task Main(string[] args) {
             DotNetEnv.Env.Load();
+           
+          //  timer.Elapsed += async (sender, e) => await MyElapsedMethod(sender, e,args); 
+          //   timer.AutoReset = true;
+          //   timer.Enabled = true;  
+          //   timer.Start();
+          //   Console.Read();
 
-//                  System.Console.WriteLine($"{Environment.GetEnvironmentVariable("SENDER_EMAIL")}");
-//              System.Console.WriteLine($"{Environment.GetEnvironmentVariable("RECEIVER_EMAIL")}");
+          while(true){
 
-//  System.Console.WriteLine($"{Environment.GetEnvironmentVariable("SMTP_SERVER")}");
-//   System.Console.WriteLine(int.Parse(Environment.GetEnvironmentVariable("SMTP_PORT")));
-
-//  System.Console.WriteLine($"{Environment.GetEnvironmentVariable("SENDER_EMAIL")}");
-//   System.Console.WriteLine($"{Environment.GetEnvironmentVariable("SENDER_PASSWORD_CREDENTIAL")}");
-
-
-// return;
-
-           timer.Elapsed += async (sender, e) => await MyElapsedMethod(sender, e,args); 
-            timer.AutoReset = true;
-            timer.Enabled = true;  
-            timer.Start();
-            Console.Read();
+            Console.WriteLine("Entrou no loop");
+           await MyElapsedMethod(args);
+           Console.WriteLine("Enviou //  inico de espera 15 s");
+           await Task.Delay(TimeSpan.FromSeconds(15));
+           Console.WriteLine("Fim dos 5 s");
+          }
             
         }
 
@@ -65,7 +62,7 @@ namespace Inoa
              public double volume { get; set; }
         }
 
-         private async static Task MyElapsedMethod(object sender, ElapsedEventArgs e, string[] args)
+         private async static Task MyElapsedMethod(string[] args)
         {
 
              var email = new EmailSender();
@@ -77,10 +74,11 @@ namespace Inoa
        double shouldSell;  
        double shouldBuy; 
        double.TryParse(args[1], System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out shouldSell); //adjust input according to US
-       double.TryParse(args[1], System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out shouldBuy);
+       double.TryParse(args[2], System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out shouldBuy);
         
          var  average = ((y.values[0].high+y.values[0].low)/2);
-
+  //System.Console.WriteLine(average);
+  //return;
            if (average >shouldSell)
            {
                Console.WriteLine("Enviar email de vender");
@@ -93,11 +91,6 @@ namespace Inoa
                await email.SendEmail(args[0], "buy");
            }
 
-           
-          
-           
-
-        
          
         }
     }
