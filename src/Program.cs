@@ -11,7 +11,7 @@ namespace Inoa
 {
     class Program
     {
-          public static Timer timer = new Timer(5000);//create setInterval
+        //  public static Timer timer = new Timer(5000);//create setInterval
 
       HttpClient client = new HttpClient();
         
@@ -23,35 +23,28 @@ namespace Inoa
           //   timer.Enabled = true;  
           //   timer.Start();
           //   Console.Read();
-
+        int delay;
+         int.TryParse(Environment.GetEnvironmentVariable("DELAY"), System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out delay);
+          
+         // System.Console.WriteLine(delay);
+        
           while(true){
 
             Console.WriteLine("Entrou no loop");
            await MyElapsedMethod(args);
-           Console.WriteLine("Enviou //  inico de espera 15 s");
-           await Task.Delay(TimeSpan.FromSeconds(15));
-           Console.WriteLine("Fim dos 5 s");
+           Console.WriteLine($"Enviou //  inico de espera {Environment.GetEnvironmentVariable("DELAY")} s");
+           await Task.Delay(TimeSpan.FromSeconds(delay));
+           Console.WriteLine($"Fim dos {delay} s");
           }
             
         }
 
         private async Task<ObjectTest2> MyFunction(string args){
-          string response = await client.GetStringAsync($"https://api.twelvedata.com/time_series?symbol={args}&interval=1min&apikey=ff4dfb66a51c4c77a59163cbb2adc5b6&source=docs");
-        // string response2 = await client.GetStringAsync($"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=NN9O5HXEPOUGIT9H");
       
-          var response3 = await client.GetStringAsync($"https://financialmodelingprep.com/api/v3/quote-short/{args}.SA?apikey={Environment.GetEnvironmentVariable("API_KEY")}");
-       //  System.Console.WriteLine(response3);
-        
+        var response3 = await client.GetStringAsync($"https://financialmodelingprep.com/api/v3/quote-short/{args}.SA?apikey={Environment.GetEnvironmentVariable("API_KEY")}");
+      
        List<ObjectTest2> list = JsonConvert.DeserializeObject<List<ObjectTest2>>(response3);
-
-       System.Console.WriteLine(list[0].price);
-        
-      return list[0];
-       // return JsonConvert.DeserializeObject<ObjectTest2>(response);
-          
-       // return JsonConvert.DeserializeObject<ObjectTest2>(response);
-         
-
+       return list[0];
         }
 
          public class ObjectTest2 {
