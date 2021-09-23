@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace Inoa
+namespace StockQuoteAlert
 {
-    class Program
+    class StockCheck
     {
      
         HttpClient client = new HttpClient();
@@ -37,28 +37,17 @@ namespace Inoa
                 
         }
 
-        private async Task<ObjectTest2> GetStockInfo(string args){
+        private async Task<StockData> GetStockInfo(string args){
           var response3 = await client.GetStringAsync($"https://financialmodelingprep.com/api/v3/quote-short/{args}.SA?apikey={Environment.GetEnvironmentVariable("API_KEY")}");
-          System.Console.WriteLine(response3);
-          List<ObjectTest2> list = JsonConvert.DeserializeObject<List<ObjectTest2>>(response3);
+          List<StockData> list = JsonConvert.DeserializeObject<List<StockData>>(response3);
           return list[0];
         }
-
-         public class ObjectTest2 {
-            [JsonProperty("symbol")]
-            public string symbol { get; set; }
-             [JsonProperty("price")]
-            public string price  { get; set; }
-             [JsonProperty("volume")]
-            public string volume { get; set; }
-        }
-
          private async static Task MyElapsedMethod(string[] args)
         {
 
-          var email = new EmailSender();
+          var email = new Email();
             
-          Program program = new Program();
+          StockCheck program = new StockCheck();
           var y = await program.GetStockInfo(args[0]);
           System.Console.WriteLine(y.price);
           
@@ -72,13 +61,13 @@ namespace Inoa
           if (price >shouldSell)
           {
               Console.WriteLine("Send 'sell' email");
-              await email.SendEmail(args[0], "sell");
+              await email.Send(args[0], "sell");
           }
 
             if (price < shouldBuy)
           {
               Console.WriteLine("Send 'buy' email");
-              await email.SendEmail(args[0], "buy");
+              await email.Send(args[0], "buy");
           }
 
          

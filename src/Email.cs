@@ -8,22 +8,24 @@ using System;
 using SendGrid.Helpers.Mail;
 using System.Text;
 
-namespace Inoa
+namespace StockQuoteAlert
 {
-     public class EmailSender
+     public class Email
     {
-
-        public EmailSender(){
+        private string msg{
+            get;
+            set;
+        }
+        public Email(){
 
         }
-        public async Task SendEmail(string stock, string action){
+        public async Task Send(string stock, string action){
 
-            string msg = "";
             if(action=="buy"){
-                msg=$"You should buy stocks of {stock}";
+                this.msg=$"You should buy stocks of {stock}";
 
             }else{
-                msg=$"You should sell stocks of {stock}";
+               this.msg=$"You should sell stocks of {stock}";
             }
 
        
@@ -47,7 +49,6 @@ namespace Inoa
                  await smtpClient.SendMailAsync(mailMessage);
 
                 Console.WriteLine("Seu email foi enviado com sucesso! :)");
-                //Console.ReadLine();
                 
               }  catch (Exception e)
             {   
