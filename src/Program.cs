@@ -51,7 +51,6 @@ namespace StockQuoteAlert
           var y = await program.GetStockInfo(args[0]);
           System.Console.WriteLine(y.price);
           
-          
           var price = ParseValue(y.price);
           var shouldSell = ParseValue(args[1]);
           var shouldBuy = ParseValue(args[2]);
@@ -61,13 +60,13 @@ namespace StockQuoteAlert
           if (price >shouldSell)
           {
               Console.WriteLine("Send 'sell' email");
-              await email.Send(args[0], "sell");
+              await email.Send(email.CreateMailBody(args[0], "sell"));
           }
 
             if (price < shouldBuy)
           {
               Console.WriteLine("Send 'buy' email");
-              await email.Send(args[0], "buy");
+              await email.Send(email.CreateMailBody(args[0], "buy"));
           }
 
          

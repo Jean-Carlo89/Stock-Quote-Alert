@@ -12,25 +12,28 @@ namespace StockQuoteAlert
 {
      public class Email
     {
-        private string msg{
+        static string msg{
             get;
             set;
         }
         public Email(){
 
         }
-        public async Task Send(string stock, string action){
 
+
+        public class EmailBody{
+           public MailMessage message {get;set;}
+           public SmtpClient client {get;set;}
+        }
+
+        public EmailBody CreateMailBody(string stock, string action){
             if(action=="buy"){
-                this.msg=$"You should buy stocks of {stock}";
+                msg=$"You should buy stocks of {stock}";
 
             }else{
-               this.msg=$"You should sell stocks of {stock}";
+                msg=$"You should sell stocks of {stock}";
             }
 
-       
-
-            try{
              MailMessage mailMessage = new MailMessage($"{Environment.GetEnvironmentVariable("SENDER_EMAIL")}", $"{Environment.GetEnvironmentVariable("RECEIVER_EMAIL")}");
            
                 mailMessage.Subject = "Stock-alert";
@@ -46,6 +49,21 @@ namespace StockQuoteAlert
 
                 smtpClient.EnableSsl =Convert.ToBoolean(Environment.GetEnvironmentVariable("SMTP_SSL"));
 
+            EmailBody body = new EmailBody();
+            body.message = mailMessage;
+            body.client = smtpClient;
+
+            return body;
+
+        }
+
+
+        public async Task Send(EmailBody mail){
+
+        var smtpClient = mail.client;
+        var mailMessage = mail.message;
+
+            try{
                  await smtpClient.SendMailAsync(mailMessage);
 
                 Console.WriteLine("Seu email foi enviado com sucesso! :)");
@@ -54,8 +72,6 @@ namespace StockQuoteAlert
             {   
                 Console.WriteLine("Houve um erro no envio do email :(");
                 Console.WriteLine(e.Message);
-                 Console.WriteLine(e);
-                Console.ReadLine();
             }
              
         }
