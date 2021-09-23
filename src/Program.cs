@@ -33,14 +33,15 @@ namespace StockQuoteAlert
             }catch(Exception ex){
               System.Console.WriteLine(ex.Message);
             }
-            
-                
         }
 
         private async Task<StockData> GetStockInfo(string args){
           var response3 = await client.GetStringAsync($"https://financialmodelingprep.com/api/v3/quote-short/{args}.SA?apikey={Environment.GetEnvironmentVariable("API_KEY")}");
           List<StockData> list = JsonConvert.DeserializeObject<List<StockData>>(response3);
-          return list[0];
+          if(list.Count>0){
+            return list[0];
+          }
+          return null;
         }
          private async static Task MyElapsedMethod(string[] args)
         {
@@ -49,6 +50,11 @@ namespace StockQuoteAlert
             
           StockCheck program = new StockCheck();
           var y = await program.GetStockInfo(args[0]);
+            
+            if(y==null){
+              return;
+            }
+
           System.Console.WriteLine(y.price);
           
           var price = ParseValue(y.price);
@@ -56,6 +62,8 @@ namespace StockQuoteAlert
           var shouldBuy = ParseValue(args[2]);
         
           System.Console.WriteLine(price);
+
+          
         
           if (price >shouldSell)
           {
@@ -68,8 +76,6 @@ namespace StockQuoteAlert
               Console.WriteLine("Send 'buy' email");
               await email.Send(email.CreateMailBody(args[0], "buy"));
           }
-
-         
         }
 
         static Double ParseValue(string value){
