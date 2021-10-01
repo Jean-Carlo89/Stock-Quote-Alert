@@ -7,7 +7,7 @@
 
    ### `dotnet build`
 
-3. create a .env like in .env.example in the src folder
+3. create inside the src folder a .env like in .env.example 
 
 4. enter src folder and run:
   ### `dotnet run {stock symbol} {max value} {min value}`
