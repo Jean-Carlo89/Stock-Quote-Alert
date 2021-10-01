@@ -5071,11 +5071,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\StockQuoteAlert.csproj",
+      "projectUniqueName": "C:\\Users\\jeanc\\OneDrive\\Área de Trabalho\\TESTES\\Stock-Quote-Alert\\src\\StockQuoteAlert.csproj",
       "projectName": "StockQuoteAlert",
-      "projectPath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\StockQuoteAlert.csproj",
+      "projectPath": "C:\\Users\\jeanc\\OneDrive\\Área de Trabalho\\TESTES\\Stock-Quote-Alert\\src\\StockQuoteAlert.csproj",
       "packagesPath": "C:\\Users\\jeanc\\.nuget\\packages\\",
-      "outputPath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\obj\\",
+      "outputPath": "C:\\Users\\jeanc\\OneDrive\\Área de Trabalho\\TESTES\\Stock-Quote-Alert\\src\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jeanc\\AppData\\Roaming\\NuGet\\NuGet.Config"

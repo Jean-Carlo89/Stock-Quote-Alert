@@ -23,7 +23,6 @@ namespace StockQuoteAlert
             try{
              
               do{
-                System.Console.WriteLine("loop");
                 await MyElapsedMethod(args);
                 await Task.Delay(TimeSpan.FromSeconds(delay));
               }while(true);
