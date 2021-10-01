@@ -23,8 +23,8 @@ namespace StockQuoteAlert
             try{
              
               do{
+                System.Console.WriteLine("loop");
                 await MyElapsedMethod(args);
-                System.Console.WriteLine("Email sent");
                 await Task.Delay(TimeSpan.FromSeconds(delay));
               }while(true);
             
@@ -54,6 +54,7 @@ namespace StockQuoteAlert
                 System.Console.WriteLine($"No price reference was found for the stock '{args[0]}'");
                 return;
               }
+             
               
               var price = ParseValue(stockInfo.globalQuote.price);
               var shouldSell = ParseValue(args[1]);

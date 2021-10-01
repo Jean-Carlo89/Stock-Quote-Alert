@@ -12,7 +12,7 @@ namespace StockQuoteAlert
 {
      public class Email
     {
-        static string msg{
+        public string msg{
             get;
             set;
         }
@@ -65,6 +65,7 @@ namespace StockQuoteAlert
 
             try{
                  await smtpClient.SendMailAsync(mailMessage);
+                 System.Console.WriteLine("Email sent");
               }  catch (Exception e)
             {              
                 Console.WriteLine(e.Message);
