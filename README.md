@@ -10,7 +10,7 @@
 3. create a .env like in .env.example in the src folder
 
 4. enter src folder and run:
-  ### `dotnet run {name of the stock} {max value} {min value}`
+  ### `dotnet run {stock symbol} {max value} {min value}`
 
 
   
