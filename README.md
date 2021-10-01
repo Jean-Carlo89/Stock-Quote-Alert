@@ -5,7 +5,7 @@
 1. Clone this repository
 2. Install dependencies
 
-   ### `dotnet run build`
+   ### `dotnet restore`
 
 3. create a .env like in .env.example in the src folder
 
