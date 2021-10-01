@@ -65,12 +65,8 @@ namespace StockQuoteAlert
 
             try{
                  await smtpClient.SendMailAsync(mailMessage);
-
-                Console.WriteLine("Seu email foi enviado com sucesso! :)");
-                
               }  catch (Exception e)
-            {   
-                Console.WriteLine("Houve um erro no envio do email :(");
+            {              
                 Console.WriteLine(e.Message);
             }
              

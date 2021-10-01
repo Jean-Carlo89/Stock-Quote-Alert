@@ -23,11 +23,9 @@ namespace StockQuoteAlert
             try{
              
               do{
-                Console.WriteLine("Entrou no loop");
                 await MyElapsedMethod(args);
-                Console.WriteLine($"Enviou //  inico de espera {Environment.GetEnvironmentVariable("DELAY")} s");
+                System.Console.WriteLine("Email sent");
                 await Task.Delay(TimeSpan.FromSeconds(delay));
-                Console.WriteLine($"Fim dos {delay} s");
               }while(true);
             
             }catch(Exception ex){
@@ -63,13 +61,11 @@ namespace StockQuoteAlert
             
               if (price >shouldSell)
               {
-                  Console.WriteLine("Send 'sell' email");
                   await email.Send(email.CreateMailBody(args[0], "sell"));
               }
 
                 if (price < shouldBuy)
               {
-                  Console.WriteLine("Send 'buy' email");
                   await email.Send(email.CreateMailBody(args[0], "buy"));
               }
         }
