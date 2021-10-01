@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KPYCFBigs3jtcH4x2C072mi8jGDv9gdWA9jDTX6MvPM98kY9WYTWPSg+RCWrxYBOR+/uKpdqUFDlzMuuHAn14g==",
+  "dgSpecHash": "bZfFautKiEQEXfjyjGZNujcxz0zICapPGsSgY7/7ZooQ5FEtCkfqtDpMIUVL3e2aO+rKyuY50p/6PBHAxdY8Eg==",
   "success": true,
-  "projectFilePath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj",
+  "projectFilePath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\StockQuoteAlert.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jeanc\\.nuget\\packages\\dotnetenv\\2.1.1\\dotnetenv.2.1.1.nupkg.sha512",
     "C:\\Users\\jeanc\\.nuget\\packages\\fluentemail.core\\3.0.0\\fluentemail.core.3.0.0.nupkg.sha512",

@@ -5071,9 +5071,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj",
-      "projectName": "Inoa",
-      "projectPath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\Inoa.csproj",
+      "projectUniqueName": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\StockQuoteAlert.csproj",
+      "projectName": "StockQuoteAlert",
+      "projectPath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\StockQuoteAlert.csproj",
       "packagesPath": "C:\\Users\\jeanc\\.nuget\\packages\\",
       "outputPath": "E:\\JEAN -- PROGRAMAÇÃO\\Inoa\\src\\obj\\",
       "projectStyle": "PackageReference",

@@ -9,7 +9,7 @@ using System.Globalization;
 
 namespace StockQuoteAlert
 {
-    class StockCheck
+   public class StockQuote
     {
      
         HttpClient client = new HttpClient();
@@ -36,28 +36,50 @@ namespace StockQuoteAlert
         }
 
         private async Task<StockData> GetStockInfo(string args){
-          var response3 = await client.GetStringAsync($"https://financialmodelingprep.com/api/v3/quote-short/{args}.SA?apikey={Environment.GetEnvironmentVariable("API_KEY")}");
-          List<StockData> list = JsonConvert.DeserializeObject<List<StockData>>(response3);
-          if(list.Count>0){
-            return list[0];
-          }
-          return null;
+         // var response3 = await client.GetStringAsync($"https://financialmodelingprep.com/api/v3/quote-short/{args}.SA?apikey={Environment.GetEnvironmentVariable("API_KEY")}");
+         var response3 = await client.GetStringAsync($"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={args}.SA&apikey={Environment.GetEnvironmentVariable("API_KEY")}");
+       System.Console.WriteLine(response3);
+       
+        // https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=BRBI11.SA&apikey=NN9O5HXEPOUGIT9H
+          //List<StockData> list = JsonConvert.DeserializeObject<List<StockData>>(response3);
+
+          StockData obj = JsonConvert.DeserializeObject<StockData>(response3);
+         
+        System.Console.WriteLine(obj.globalQuote.price);
+        
+      
+         return obj;
+         
+          // if(list.Count>0){
+          //   return list[0];
+          // }
+         // return null;
         }
          private async static Task MyElapsedMethod(string[] args)
         {
-
+        
+          
           var email = new Email();
             
-          StockCheck program = new StockCheck();
-          var y = await program.GetStockInfo(args[0]);
+          StockQuote program = new StockQuote();
+          var stockInfo = await program.GetStockInfo(args[0]);
+          System.Console.WriteLine(stockInfo.globalQuote.price);
             
-            if(y==null){
-              return;
-            }
+          if(stockInfo.globalQuote.price==null){
+            System.Console.WriteLine("is null");
+            return;
+          }
 
-          System.Console.WriteLine(y.price);
+            
+            
+            // if(stockInfo==null){
+            //   return;
+
+            // }
+
+         
           
-          var price = ParseValue(y.price);
+          var price = ParseValue(stockInfo.globalQuote.price);
           var shouldSell = ParseValue(args[1]);
           var shouldBuy = ParseValue(args[2]);
         
@@ -78,9 +100,10 @@ namespace StockQuoteAlert
           }
         }
 
-        static Double ParseValue(string value){
+       public static Double ParseValue(string value){
            double parsedValue;
            double.TryParse(value, System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out parsedValue); //adjust input according to US
+          
            return parsedValue;
         }
     }
